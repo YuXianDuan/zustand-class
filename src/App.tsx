@@ -2,12 +2,12 @@ import {useEffect} from 'react';
 import {useStore} from './store';
 
 function App() {
-    const { test, updateState,updateState2} = useStore();
+    const { test, updateState, testObs} = useStore();
 
     useEffect(() => {
         const subs = [
             setTimeout(() => updateState(), 2000),
-            setTimeout(() => updateState2(), 3000),
+            // setTimeout(() => updateState2(), 3000),
         ]
 
         return () => {
@@ -17,9 +17,17 @@ function App() {
 
     return (
         <div className="App">
-            {test}
+            {test}{testObs}
         </div>
     );
+}
+
+function Comp1() {
+
+}
+
+function Comp2() {
+
 }
 
 export default App;
